@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}</ProjectGuid>
+    <ProjectGuid>{10817943-551E-2A6C-D173-41FBA3F80BDB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,7 +46,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\LifeManager.cs" />
+     <Compile Include="Assets\Script\Musique fond\Destroy.cs" />
+     <Compile Include="Assets\Script\Musique fond\DontDestroy.cs" />
+     <Compile Include="Assets\Script\Musique fond\MusicManager.cs" />
      <Compile Include="Assets\Script\RotationPopocorn.cs" />
+     <Compile Include="Assets\Script\SceneManager\CreditsScript.cs" />
+     <Compile Include="Assets\Script\SceneManager\LvelsManager.cs" />
+     <Compile Include="Assets\Script\SceneManager\PauseScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Programme/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
