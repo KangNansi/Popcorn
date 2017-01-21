@@ -78,6 +78,10 @@
     <Compile Include="Assets\Script\Code\Code.cs" />
     <Compile Include="Assets\Script\Code\CodeButton.cs" />
     <Compile Include="Assets\Script\Code\Pictogramme.cs" />
+    <Compile Include="Assets\Script\Enigme2\E2Fleche.cs" />
+    <Compile Include="Assets\Script\Enigme2\Enigme2.cs" />
+    <Compile Include="Assets\Script\Enigme2\Enigme2Button.cs" />
+    <Compile Include="Assets\Script\Enigme2\Enigme2PathDisplay.cs" />
     <Compile Include="Assets\Script\Interface\IActivable.cs" />
     <Compile Include="Assets\Script\LifeManager.cs" />
     <Compile Include="Assets\Script\Musique fond\Destroy.cs" />
