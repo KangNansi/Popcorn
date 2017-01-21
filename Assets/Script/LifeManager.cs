@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LifeManager : MonoBehaviour {
 
 	public int Gm;
 	public float timer;
+
+    public Text timerText;
 
 
 	// Use this for initialization
@@ -18,10 +21,12 @@ public class LifeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Peut être déplacer ça dans un FixedUpdate pour qu'il se pause si timescale = 0
 		MinusLife ();
 		checkLife ();
-		
+        timerText.text = (int)Gm / 60 + ":" + (int)Gm % 60;
 	}
+    
 	void MinusLife(){
 		
 		timer = timer + 0.5f * Time.deltaTime;
