@@ -6,7 +6,7 @@ public class CodeEditor : Editor
 {
     enum Tool
     {
-        AddCodeButton, AddToggle
+        AddCodeButton, AddToggle, AddPictos
     };
     Tool tool = Tool.AddCodeButton;
 
@@ -18,6 +18,7 @@ public class CodeEditor : Editor
             tool = Tool.AddCodeButton;
         if (GUILayout.Toggle((tool == Tool.AddToggle) ? true : false, "Add Toggle", "Button"))
             tool = Tool.AddToggle;
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("pictos"), true);
         serializedObject.ApplyModifiedProperties();
     }
 
@@ -33,6 +34,9 @@ public class CodeEditor : Editor
         Handles.color = new Color(0, 255, 0);
         for (int i = 0; i < code.togglers.Count; i++)
             Handles.DrawLine(code.transform.position, code.togglers[i].transform.position);
+        Handles.color = new Color(0, 0, 255);
+        for (int i = 0; i < code.pictos.Count; i++)
+            Handles.DrawLine(code.transform.position, code.pictos[i].transform.position);
 
         switch (Event.current.type)
         {
@@ -66,6 +70,18 @@ public class CodeEditor : Editor
                                     code.togglers.Add(tog);
                                 else
                                     code.togglers.Remove(tog);
+                                HandleUtility.Repaint();
+                            }
+                            break;
+
+                        case Tool.AddPictos:
+                            Pictogramme pic = hit.collider.GetComponent<Pictogramme>();
+                            if (pic != null)
+                            {
+                                if (!code.pictos.Contains(pic))
+                                    code.pictos.Add(pic);
+                                else
+                                    code.pictos.Remove(pic);
                                 HandleUtility.Repaint();
                             }
                             break;

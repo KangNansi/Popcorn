@@ -22,6 +22,12 @@ public class CodeButton : State, IActivable
     public void SetValue(int v)
     {
         val = v;
+        GetComponentInChildren<Pictogramme>().SetValue(val);
+    }
+
+    public int GetValue()
+    {
+        return val;
     }
 
 	// Use this for initialization

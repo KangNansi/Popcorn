@@ -6,8 +6,10 @@ using UnityEngine;
 public class Code : State {
     public int nb_symbole;
     public List<CodeButton> buttons;
-    public List<State> togglers; 
+    public List<State> togglers;
+    public List<Pictogramme> pictos;
     bool[] goodCode;
+    int[] values;
 
     bool getRandomBool()
     {
@@ -18,10 +20,31 @@ public class Code : State {
 	// Use this for initialization
 	void Start () {
         goodCode = new bool[buttons.Count];
+        values = new int[9];
+        for (int i = 0; i < 9; i++)
+            values[i] = i;
+        for(int i = 0; i < 9; i++)
+        {
+            int temp = values[i];
+            int rand = UnityEngine.Random.Range(0, 8);
+            values[i] = values[rand];
+            values[rand] = temp;
+        }
+        int p=0;
         for (int i = 0; i < buttons.Count; i++)
         {
-            goodCode[i] = getRandomBool();
-            buttons[i].SetValue(UnityEngine.Random.Range(0, 5));
+            buttons[i].SetValue(values[i]);
+            goodCode[i] = false;
+        }
+        while (p < pictos.Count)
+        {
+            int rand = UnityEngine.Random.Range(0, 9);
+            if (!goodCode[rand])
+            {
+                goodCode[rand] = true;
+                pictos[p].SetValue(values[rand]);
+                p++;
+            }
         }
     }
 	
