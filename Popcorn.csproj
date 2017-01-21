@@ -83,6 +83,7 @@
     <Compile Include="Assets\Script\Enigme2\Enigme2Button.cs" />
     <Compile Include="Assets\Script\Enigme2\Enigme2PathDisplay.cs" />
     <Compile Include="Assets\Script\Interface\IActivable.cs" />
+    <Compile Include="Assets\Script\Led.cs" />
     <Compile Include="Assets\Script\LifeManager.cs" />
     <Compile Include="Assets\Script\Musique fond\Destroy.cs" />
     <Compile Include="Assets\Script\Musique fond\DontDestroy.cs" />

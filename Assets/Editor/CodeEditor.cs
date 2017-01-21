@@ -14,10 +14,8 @@ public class CodeEditor : Editor
     {
         serializedObject.Update();
 
-        if (GUILayout.Toggle((tool == Tool.AddCodeButton) ? true : false, "Add CodeButton", "Button"))
-            tool = Tool.AddCodeButton;
-        if (GUILayout.Toggle((tool == Tool.AddToggle) ? true : false, "Add Toggle", "Button"))
-            tool = Tool.AddToggle;
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("buttons"), true);
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("togglers"), true);
         EditorGUILayout.PropertyField(serializedObject.FindProperty("pictos"), true);
         serializedObject.ApplyModifiedProperties();
     }
@@ -28,15 +26,6 @@ public class CodeEditor : Editor
         HandleUtility.AddDefaultControl(ControlID);
 
         Code code = target as Code;
-        Handles.color = new Color(255, 0, 0);
-        for (int i = 0; i < code.buttons.Count; i++)
-            Handles.DrawLine(code.transform.position, code.buttons[i].transform.position);
-        Handles.color = new Color(0, 255, 0);
-        for (int i = 0; i < code.togglers.Count; i++)
-            Handles.DrawLine(code.transform.position, code.togglers[i].transform.position);
-        Handles.color = new Color(0, 0, 255);
-        for (int i = 0; i < code.pictos.Count; i++)
-            Handles.DrawLine(code.transform.position, code.pictos[i].transform.position);
 
         switch (Event.current.type)
         {

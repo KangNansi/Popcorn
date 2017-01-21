@@ -24,7 +24,7 @@ public class LifeManager : MonoBehaviour {
         //Peut être déplacer ça dans un FixedUpdate pour qu'il se pause si timescale = 0
 		MinusLife ();
 		checkLife ();
-        timerText.text = (int)Gm / 60 + ":" + (int)Gm % 60;
+       // timerText.text = (int)Gm / 60 + ":" + (int)Gm % 60;
 	}
     
 	void MinusLife(){
@@ -35,8 +35,7 @@ public class LifeManager : MonoBehaviour {
 			Gm -= 1 ;
 			timer = 0;
 		}
-		Debug.Log (timer);
-		Debug.Log (Gm);
+
 	}
 
 	void checkLife(){
